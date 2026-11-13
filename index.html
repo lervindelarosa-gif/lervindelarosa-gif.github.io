@@ -7,7 +7,14 @@
 <meta name="description" content="Junior Data Analyst in The Hague. 10 years at Booking.com and Sendcloud, now working with SQL, Python and Tableau.">
 <meta property="og:title" content="Lervin de la Rosa · Junior Data Analyst">
 <meta property="og:description" content="10 years of business experience. Now I use data to help teams make better decisions. Based in The Hague.">
-<meta property="og:image" content="https://lervindelarosa-gif.github.io/assets/lervin-800.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lervindelarosa-gif.github.io/">
+<meta property="og:image" content="https://lervindelarosa-gif.github.io/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Lervin de la Rosa, Junior Data Analyst in The Hague">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://lervindelarosa-gif.github.io/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2314171F'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' font-weight='700' text-anchor='middle' fill='%23D4A056'%3EL%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -91,6 +98,15 @@ nav{display:flex;align-items:center;justify-content:space-between;height:66px}
 .project ul{list-style:none;margin-bottom:20px}
 .project li{color:var(--muted);padding-left:20px;position:relative;margin-bottom:8px}
 .project li::before{content:"";position:absolute;left:0;top:12px;width:8px;height:1px;background:var(--gold)}
+.shot{display:block;margin:-36px -36px 28px;border-bottom:1px solid var(--line);overflow:hidden}
+.shot img{width:100%;height:auto;transition:transform .4s ease}
+.shot:hover img{transform:scale(1.02)}
+.project.featured .shot{grid-column:1/-1;margin-bottom:0;background:var(--card)}
+.project.featured .shot img{max-height:400px;object-fit:contain}
+.case{display:grid;grid-template-columns:112px 1fr;gap:10px 18px;margin-bottom:22px}
+.case dt{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);padding-top:5px}
+.case dd{color:var(--muted)}
+.case dd strong{color:var(--text);font-weight:600}
 .tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
 .tag{font-size:12px;font-weight:500;letter-spacing:.06em;color:var(--muted);border:1px solid var(--line);padding:4px 10px}
 .links{display:flex;flex-wrap:wrap;gap:22px}
@@ -154,6 +170,9 @@ footer{padding:30px 0 40px;text-align:center;color:var(--faint);font-size:13px;b
   .nav-links{gap:18px}
   .nav-links .opt{display:none}
   .project{padding:24px}
+  .shot{margin:-24px -24px 22px}
+  .case{grid-template-columns:1fr;gap:2px}
+  .case dd{margin-bottom:10px}
   .num{padding:20px 14px}
   .num b{font-size:28px}
   .btn{padding:14px 20px}
@@ -251,15 +270,16 @@ footer{padding:30px 0 40px;text-align:center;color:var(--faint);font-size:13px;b
     <div class="projects">
 
       <article class="project featured reveal">
+        <a class="shot" href="https://public.tableau.com/app/profile/lervin.de.la.rosa/viz/Ismemorylossonlyaboutage/Home" target="_blank" rel="noopener"><img src="assets/proj-memory.png" alt="Heat map: memory loss by age group and household income. At ages 50 to 54, 36% at the lowest income against 9% at the highest" width="1200" height="675" loading="lazy"></a>
         <div>
           <p class="kicker">Final project · Ironhack</p>
           <h3>Is memory loss only about age?</h3>
-          <p>I used to work with people with dementia, so I wanted to understand memory loss. I studied two large US health surveys.</p>
-          <ul>
-            <li>People aged 45 to 64 report memory loss almost as often as people over 65.</li>
-            <li><strong>Low income, depression and hearing problems</strong> matter as much as age.</li>
-            <li>I built a model that helps a health team choose <strong>who to contact first</strong>. I tested it on 52,043 new people.</li>
-          </ul>
+          <p>I used to work with people with dementia, so I wanted to understand memory loss better.</p>
+          <dl class="case">
+            <dt>Question</dt><dd>Is memory loss only about getting older?</dd>
+            <dt>What I did</dt><dd>Studied two large US health surveys, then built a model that helps a health team choose <strong>who to contact first</strong>.</dd>
+            <dt>Result</dt><dd>No. People aged 45 to 64 report memory loss almost as often as people over 65. <strong>Low income, depression and hearing problems</strong> matter too.</dd>
+          </dl>
           <div class="tags"><span class="tag">Python</span><span class="tag">Machine learning</span><span class="tag">Statistics</span><span class="tag">Tableau</span><span class="tag">Streamlit</span></div>
           <div class="links">
             <a href="https://memory-loss-analysis.streamlit.app" target="_blank" rel="noopener">Live app ↗</a>
@@ -278,14 +298,14 @@ footer{padding:30px 0 40px;text-align:center;color:var(--faint);font-size:13px;b
 
       <div class="pair">
         <article class="project reveal">
+          <a class="shot" href="https://public.tableau.com/app/profile/juliana.therezo/viz/VanguardABTest_Dashboard/Overview" target="_blank" rel="noopener"><img src="assets/proj-vanguard.png" alt="Bar chart: 69.3% of clients finished with the new design, against 65.6% with the old design" width="1200" height="675" loading="lazy"></a>
           <p class="kicker">Ironhack project</p>
           <h3>Vanguard website test</h3>
-          <p>Did a new website design help clients finish their online process? We compared the old and new design with 50,500 clients.</p>
-          <ul>
-            <li>More clients finished: <strong>69.3% instead of 65.6%</strong>.</li>
-            <li>But the gain was too small to be worth the cost, so we advised fixing the first step before launch.</li>
-            <li>I cleaned and checked the data of 70,609 clients.</li>
-          </ul>
+          <dl class="case">
+            <dt>Question</dt><dd>Does a new website design help clients finish their online process?</dd>
+            <dt>What I did</dt><dd>Cleaned and checked the data of 70,609 clients, then compared the old and new design with 50,500 clients.</dd>
+            <dt>Result</dt><dd>More clients finished: <strong>69.3% instead of 65.6%</strong>. But the gain is not proven to reach the 5% target, so the advice was to fix the first step before launch.</dd>
+          </dl>
           <div class="tags"><span class="tag">A/B test</span><span class="tag">Python</span><span class="tag">Tableau</span></div>
           <div class="links">
             <a href="https://github.com/lervindelarosa-gif/vanguard-ab-test" target="_blank" rel="noopener">Code ↗</a>
@@ -294,14 +314,14 @@ footer{padding:30px 0 40px;text-align:center;color:var(--faint);font-size:13px;b
         </article>
 
         <article class="project reveal">
+          <a class="shot" href="https://github.com/lervindelarosa-gif/Impact-of-Ai-on-Society" target="_blank" rel="noopener"><img src="assets/proj-ai.png" alt="Line chart: the average share of European companies using AI rose from 7.0% in 2021 to 19.3% in 2025" width="1200" height="675" loading="lazy"></a>
           <p class="kicker">Ironhack project</p>
           <h3>AI in European companies</h3>
-          <p>How many European companies use AI, and what stops the others? We collected official EU data and combined it into one table.</p>
-          <ul>
-            <li>Companies using AI almost <strong>tripled</strong>: from 7% in 2021 to 19% in 2025.</li>
-            <li>The Netherlands is 6th in Europe.</li>
-            <li>The biggest problem is <strong>a lack of skills</strong>, not money.</li>
-          </ul>
+          <dl class="case">
+            <dt>Question</dt><dd>How many European companies use AI, and what stops the others?</dd>
+            <dt>What I did</dt><dd>Collected official EU data from Eurostat and combined it into one clean table.</dd>
+            <dt>Result</dt><dd>AI use almost <strong>tripled</strong> (7% to 19%, 2021–2025). The Netherlands is 6th. The biggest problem is <strong>a lack of skills</strong>, not money.</dd>
+          </dl>
           <div class="tags"><span class="tag">Python</span><span class="tag">API</span><span class="tag">Data cleaning</span></div>
           <div class="links">
             <a href="https://github.com/lervindelarosa-gif/Impact-of-Ai-on-Society" target="_blank" rel="noopener">Code ↗</a>
