@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lervin de la Rosa · Junior Data Analyst</title>
+<meta name="description" content="Junior Data Analyst in The Hague. 10 years in customer and product operations at Booking.com and Sendcloud, now turning raw data into decisions with SQL, Python and Tableau.">
+<meta property="og:title" content="Lervin de la Rosa · Junior Data Analyst">
+<meta property="og:description" content="SQL, Python and Tableau, with 10 years of business experience behind them. Based in The Hague.">
+<meta property="og:image" content="https://lervindelarosa-gif.github.io/assets/lervin.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231E2A44'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' font-weight='700' text-anchor='middle' fill='%23F0A36B'%3EL%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Domine:wght@600;700&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1E2A44; --navy-2:#2A3856; --orange:#B4532A; --orange-soft:#F0A36B;
+  --bg:#FBF8F4; --card:#FFFFFF; --tint:#FDF3EC; --line:#E8E1D6;
+  --text:#1E2A44; --muted:#4A5164; --faint:#7A8090;
+  --radius:18px; --shadow:0 10px 30px rgba(30,42,68,.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:var(--bg);color:var(--text);font-family:'Nunito Sans',Arial,sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:Domine,Georgia,serif;line-height:1.15;color:var(--navy)}
+.eyebrow{font-size:13px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin-bottom:12px}
+section{padding:88px 0}
+section + section{border-top:1px solid var(--line)}
+.section-title{font-size:clamp(28px,4vw,40px);margin-bottom:16px}
+.lead{color:var(--muted);max-width:640px}
+
+/* nav */
+header{position:sticky;top:0;z-index:10;background:rgba(251,248,244,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:Domine,Georgia,serif;font-weight:700;font-size:20px;text-decoration:none;color:var(--navy)}
+.logo span{color:var(--orange)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{text-decoration:none;font-weight:700;font-size:15px;color:var(--muted)}
+.nav-links a:hover{color:var(--orange)}
+
+/* hero */
+.hero{padding:72px 0 80px}
+.hero-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:56px;align-items:center}
+.status{display:inline-flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:14px;font-weight:700;color:var(--muted);margin-bottom:22px}
+.dot{width:9px;height:9px;border-radius:50%;background:#2E9E5B;box-shadow:0 0 0 4px rgba(46,158,91,.18)}
+.hero h1{font-size:clamp(40px,6vw,64px);margin-bottom:8px}
+.hero h1 em{font-style:normal;color:var(--orange)}
+.hero .role{font-family:Domine,Georgia,serif;font-size:clamp(22px,3vw,28px);color:var(--navy-2);margin-bottom:20px}
+.hero p.intro{color:var(--muted);font-size:18px;max-width:560px;margin-bottom:30px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:12px;font-weight:800;font-size:16px;text-decoration:none;transition:transform .15s,box-shadow .15s,background .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--orange);color:#fff;box-shadow:0 8px 20px rgba(180,83,42,.25)}
+.btn-primary:hover{background:#9E4622}
+.btn-ghost{background:var(--card);color:var(--navy);border:1.5px solid var(--line)}
+.btn-ghost:hover{border-color:var(--navy)}
+.photo{position:relative;justify-self:center;width:min(340px,100%)}
+.photo::before{content:"";position:absolute;inset:18px -18px -18px 18px;border-radius:28px;background:var(--orange-soft);opacity:.55}
+.photo img{position:relative;border-radius:28px;aspect-ratio:1/1;object-fit:cover;width:100%;box-shadow:var(--shadow)}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:64px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+.stat b{display:block;font-family:Domine,Georgia,serif;font-size:32px;color:var(--orange);line-height:1.1;margin-bottom:6px}
+.stat span{font-size:14px;color:var(--muted);font-weight:600}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:48px;margin-top:28px}
+.about-text p{color:var(--muted);margin-bottom:16px}
+.about-text p strong{color:var(--navy)}
+.quote{border-left:4px solid var(--orange);padding:4px 0 4px 18px;font-family:Domine,Georgia,serif;font-size:20px;color:var(--navy);margin:8px 0 22px}
+.facts{display:flex;flex-direction:column;gap:16px}
+.fact{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px}
+.fact h3{font-family:'Nunito Sans',Arial,sans-serif;font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);margin-bottom:8px}
+.fact li{list-style:none;color:var(--muted);font-size:16px}
+.fact li strong{color:var(--navy)}
+
+/* projects */
+.projects{display:grid;gap:24px;margin-top:36px}
+.project{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
+.project.featured{border:2px solid var(--orange);display:grid;grid-template-columns:1.4fr 1fr;gap:32px}
+.project-pair{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.badge{display:inline-block;background:var(--tint);color:var(--orange);font-size:13px;font-weight:800;border-radius:999px;padding:4px 12px;margin-bottom:12px}
+.project h3{font-size:24px;margin-bottom:6px}
+.project .meta{font-size:14px;font-weight:700;color:var(--faint);margin-bottom:14px}
+.project p{color:var(--muted);margin-bottom:14px}
+.project ul{margin:0 0 16px 18px;color:var(--muted)}
+.project ul li{margin-bottom:6px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.tag{font-size:13px;font-weight:700;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:3px 10px;color:var(--navy-2)}
+.links{display:flex;flex-wrap:wrap;gap:10px}
+.links a{font-size:15px;font-weight:800;text-decoration:none;color:var(--orange);border-bottom:2px solid transparent}
+.links a:hover{border-color:var(--orange)}
+.result{background:var(--tint);border-radius:14px;padding:22px;display:flex;flex-direction:column;justify-content:center;gap:18px}
+.result .big{font-family:Domine,Georgia,serif;font-size:54px;color:var(--orange);line-height:1}
+.bar-row{font-size:14px;font-weight:700;color:var(--muted)}
+.bar{height:14px;border-radius:7px;background:#EADFD3;margin-top:6px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:7px}
+
+/* experience */
+.timeline{margin-top:32px;display:flex;flex-direction:column;gap:18px}
+.job{display:grid;grid-template-columns:180px 1fr;gap:24px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+.job .when{font-size:14px;font-weight:800;color:var(--faint)}
+.job h3{font-family:'Nunito Sans',Arial,sans-serif;font-size:19px;font-weight:800}
+.job .where{color:var(--orange);font-weight:700;font-size:15px;margin-bottom:8px}
+.job p{color:var(--muted);font-size:16px}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:32px}
+.skill{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+.skill h3{font-family:'Nunito Sans',Arial,sans-serif;font-size:17px;font-weight:800;margin-bottom:14px}
+
+/* contact */
+.contact{background:var(--navy);color:#fff;border-radius:28px;padding:56px;text-align:center;margin:0 auto}
+.contact h2{color:#fff;font-size:clamp(28px,4vw,40px);margin-bottom:14px}
+.contact p{color:#C9D0DE;max-width:600px;margin:0 auto 28px}
+.contact .eyebrow{color:var(--orange-soft)}
+.contact .btns{justify-content:center}
+.contact .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.3)}
+.contact .btn-ghost:hover{border-color:#fff}
+footer{padding:32px 0 40px;text-align:center;color:var(--faint);font-size:14px}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}.btn{transition:none}}
+
+/* mobile */
+@media (max-width:860px){
+  section{padding:64px 0}
+  .hero{padding:40px 0 56px}
+  .hero-grid,.about-grid,.project.featured,.project-pair{grid-template-columns:1fr}
+  .photo{order:-1;width:min(240px,70%)}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .skills{grid-template-columns:1fr}
+  .job{grid-template-columns:1fr;gap:6px}
+  .nav-links{gap:16px}
+  .contact{padding:40px 22px}
+}
+@media (max-width:520px){
+  .wrap{padding:0 16px}
+  .nav-links .opt{display:none}
+  .project{padding:22px}
+  .stat b{font-size:26px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a class="logo" href="#top">Lervin<span>.</span></a>
+    <ul class="nav-links">
+      <li class="opt"><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li class="opt"><a href="#experience">Experience</a></li>
+      <li class="opt"><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="status"><span class="dot"></span> Open to work · The Hague, NL</div>
+        <h1>Hi, I'm <em>Lervin</em></h1>
+        <p class="role">Junior Data Analyst</p>
+        <p class="intro">After 10 years in customer and product operations at Booking.com and Sendcloud, I now turn raw data into clear decisions with SQL, Python and Tableau. I'm looking for my first data role, in a team where I can learn fast and help from day one.</p>
+        <div class="btns">
+          <a class="btn btn-primary" href="#projects">See my work</a>
+          <a class="btn btn-ghost" href="#contact">Get in touch</a>
+        </div>
+      </div>
+      <div class="photo"><img src="assets/lervin.jpg" alt="Portrait of Lervin de la Rosa" width="400" height="400"></div>
+    </div>
+
+    <div class="stats reveal">
+      <div class="stat"><b>208,171</b><span>survey records analysed in my capstone</span></div>
+      <div class="stat"><b>2×</b><span>more people reached by my outreach model</span></div>
+      <div class="stat"><b>10 years</b><span>in operations at Booking.com and Sendcloud</span></div>
+      <div class="stat"><b>4</b><span>languages: Spanish, English, Papiamento, Dutch</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="wrap">
+    <p class="eyebrow">Projects</p>
+    <h2 class="section-title">What I've built</h2>
+    <p class="lead">Three projects from the Ironhack Data Analytics Bootcamp, each going from a real question, through raw data, to a clear recommendation.</p>
+
+    <div class="projects">
+
+      <article class="project featured reveal">
+        <div>
+          <span class="badge">Capstone · Solo project</span>
+          <h3>Is memory loss only about age?</h3>
+          <p class="meta">CDC health surveys · Python · scikit-learn · Tableau · Streamlit</p>
+          <p>I used to work with people diagnosed with dementia, so I wanted to understand memory loss better. I analysed two CDC health surveys: a phone survey of over 200,000 adults and a survey that tested people's memory.</p>
+          <ul>
+            <li>Memory loss is almost as common at 45–64 (16.1%) as at 65+ (17.2%). Low income, depression and hearing problems matter as much as age.</li>
+            <li>Built a gradient boosting model that helps a health team decide who to contact first, tested on 52,043 people it had never seen.</li>
+            <li>Shared it as a Tableau dashboard and an 11-page Streamlit app with a budget planner.</li>
+          </ul>
+          <div class="tags"><span class="tag">Survey weights</span><span class="tag">Logistic regression</span><span class="tag">Gradient boosting</span><span class="tag">Tableau</span><span class="tag">Streamlit</span></div>
+          <div class="links">
+            <a href="https://memory-loss-analysis.streamlit.app" target="_blank" rel="noopener">Live app ↗</a>
+            <a href="https://public.tableau.com/app/profile/lervin.de.la.rosa/viz/Ismemorylossonlyaboutage/Home" target="_blank" rel="noopener">Tableau dashboard ↗</a>
+            <a href="https://github.com/lervindelarosa-gif/memory-loss-analysis" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </div>
+        <div class="result" aria-label="Contacting 20% of people reaches 44.8% of people with memory loss with the model, against 22.2% when choosing the oldest first">
+          <div>
+            <div class="big">2×</div>
+            <p style="margin:8px 0 0;color:var(--navy);font-weight:700">more people with memory loss reached, for the same budget</p>
+          </div>
+          <div class="bar-row">My model: 44.8%<div class="bar"><i style="width:44.8%;background:var(--orange)"></i></div></div>
+          <div class="bar-row">Oldest first: 22.2%<div class="bar"><i style="width:22.2%;background:#8FA3BB"></i></div></div>
+          <p style="font-size:13px;color:var(--faint);margin:0">Share of everyone with memory loss reached when a team contacts 20% of people.</p>
+        </div>
+      </article>
+
+      <div class="project-pair">
+        <article class="project reveal">
+          <span class="badge">Team of 3</span>
+          <h3>Vanguard A/B test</h3>
+          <p class="meta">Website redesign · Python · SciPy · Tableau</p>
+          <p>Did Vanguard's new online process help clients finish? We tested the redesign across 50,500 clients.</p>
+          <ul>
+            <li>Completion rose from 65.6% to 69.3% (p&nbsp;&lt;&nbsp;0.001), but missed the 5% target that makes it worth the cost.</li>
+            <li>Recommended fixing the first step before a full rollout.</li>
+            <li>My part: cleaning and exploring 70,609 client records, and checking the test and control groups were comparable.</li>
+          </ul>
+          <div class="tags"><span class="tag">A/B testing</span><span class="tag">Hypothesis testing</span><span class="tag">EDA</span></div>
+          <div class="links">
+            <a href="https://github.com/lervindelarosa-gif/vanguard-ab-test" target="_blank" rel="noopener">GitHub ↗</a>
+            <a href="https://public.tableau.com/app/profile/juliana.therezo/viz/VanguardABTest_Dashboard/Overview" target="_blank" rel="noopener">Team dashboard ↗</a>
+          </div>
+        </article>
+
+        <article class="project reveal">
+          <span class="badge">Team of 3</span>
+          <h3>AI adoption in European companies</h3>
+          <p class="meta">Data wrangling · Python · pandas · Eurostat API</p>
+          <p>How fast are European companies adopting AI, and what holds them back? We pulled seven Eurostat indicators through the API and merged them into one tidy table.</p>
+          <ul>
+            <li>Average company AI adoption almost tripled, from 7.0% (2021) to 19.3% (2025).</li>
+            <li>The Netherlands ranks 6th in Europe (33.2%).</li>
+            <li>The top barrier is lack of expertise (about 70%), not cost.</li>
+          </ul>
+          <div class="tags"><span class="tag">REST API</span><span class="tag">pandas</span><span class="tag">Data cleaning</span></div>
+          <div class="links">
+            <a href="https://github.com/lervindelarosa-gif/Impact-of-Ai-on-Society" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </article>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <p class="eyebrow">About me</p>
+    <h2 class="section-title">From customer operations to data</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p class="quote">"I've spent years hearing what customers need. Now I can show it with data."</p>
+        <p>For ten years I worked at <strong>Booking.com</strong> and <strong>Sendcloud</strong>, solving complex customer cases, tracking KPIs and reporting patterns to product, finance and engineering teams. I kept asking the same question: <strong>what does the data say?</strong></p>
+        <p>So I started learning Python and Git on my own, and then completed the full-time <strong>Data Analytics Bootcamp at Ironhack</strong>. There I built three projects, from A/B testing to machine learning, and more than 30 labs.</p>
+        <p>I'm at the start of my data career and I know there's a lot to learn. I bring <strong>business sense, clear communication with non-technical people</strong>, and a lot of motivation. I'm looking for a team that gives me the chance to grow.</p>
+      </div>
+      <div class="facts reveal">
+        <div class="fact">
+          <h3>Education</h3>
+          <ul>
+            <li><strong>Data Analytics Bootcamp</strong> · Ironhack, 2026</li>
+            <li><strong>Bachelor's, International Communication Management</strong> · Inholland, The Hague</li>
+          </ul>
+        </div>
+        <div class="fact">
+          <h3>Languages</h3>
+          <ul>
+            <li><strong>Spanish</strong> · native</li>
+            <li><strong>English</strong> · fluent</li>
+            <li><strong>Papiamento</strong> · fluent</li>
+            <li><strong>Dutch</strong> · professional working level</li>
+          </ul>
+        </div>
+        <div class="fact">
+          <h3>Where</h3>
+          <ul><li>Based in <strong>The Hague</strong>. Open to The Hague, Rotterdam, Delft, Leiden and Amsterdam.</li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="wrap">
+    <p class="eyebrow">Experience</p>
+    <h2 class="section-title">Where I've worked</h2>
+    <div class="timeline">
+      <div class="job reveal">
+        <div class="when">Sep 2025 – Mar 2026</div>
+        <div>
+          <h3>Customer Solution Specialist</h3>
+          <p class="where">Sendcloud · Eindhoven</p>
+          <p>Turned recurring issues into structured reports for engineering, which helped shape the roadmap and cut known-issue tickets by 20%. Queried merchant data with SQL and Python to find automation gaps.</p>
+        </div>
+      </div>
+      <div class="job reveal">
+        <div class="when">Jun 2017 – Jul 2018</div>
+        <div>
+          <h3>Product Operations Coordinator</h3>
+          <p class="where">Booking.com · Amsterdam</p>
+          <p>Ranked feature requests by user impact and reported competitor and market analysis to product stakeholders.</p>
+        </div>
+      </div>
+      <div class="job reveal">
+        <div class="when">2015 – 2025</div>
+        <div>
+          <h3>Customer Service Representative</h3>
+          <p class="where">Booking.com · Amsterdam</p>
+          <p>Resolved 40+ complex cases a day against KPI targets (CSAT 80%+). Spotted patterns in customer feedback and reported them to Partner Services, Finance and Tech.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="wrap">
+    <p class="eyebrow">Skills</p>
+    <h2 class="section-title">My toolkit</h2>
+    <div class="skills">
+      <div class="skill reveal">
+        <h3>Data and analysis</h3>
+        <div class="tags"><span class="tag">SQL (MySQL)</span><span class="tag">Python</span><span class="tag">pandas</span><span class="tag">NumPy</span><span class="tag">Data cleaning</span><span class="tag">EDA</span><span class="tag">REST APIs</span><span class="tag">Advanced Excel</span></div>
+      </div>
+      <div class="skill reveal">
+        <h3>Statistics and machine learning</h3>
+        <div class="tags"><span class="tag">A/B testing</span><span class="tag">Hypothesis testing</span><span class="tag">Logistic regression</span><span class="tag">scikit-learn</span><span class="tag">Gradient boosting</span></div>
+      </div>
+      <div class="skill reveal">
+        <h3>Visualisation and tools</h3>
+        <div class="tags"><span class="tag">Tableau</span><span class="tag">Streamlit</span><span class="tag">Matplotlib</span><span class="tag">Seaborn</span><span class="tag">Git / GitHub</span><span class="tag">Jupyter</span><span class="tag">Zendesk</span><span class="tag">Shopify</span><span class="tag">SAP</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact reveal">
+      <p class="eyebrow">Contact</p>
+      <h2>Let's talk</h2>
+      <p>I'm looking for a junior data analyst role in the Netherlands. If you have an opportunity, or just want to connect, I'd love to hear from you.</p>
+      <div class="btns">
+        <a class="btn btn-primary" href="mailto:lervin.de.la.rosa@hotmail.com">Email me</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/lervindelarosa" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a class="btn btn-ghost" href="https://github.com/lervindelarosa-gif" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>© 2026 Lervin de la Rosa · The Hague, Netherlands</footer>
+
+<script>
+(function(){
+  var els=document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
+  var io=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{threshold:.12});
+  els.forEach(function(e){io.observe(e)});
+})();
+</script>
+</body>
+</html>
