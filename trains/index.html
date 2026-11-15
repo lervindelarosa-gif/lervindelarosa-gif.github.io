@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dutch Train Disruptions</title>
-<meta name="description" content="Interactive dashboard of 38,571 Dutch train disruptions, 2019–2025: hours lost, causes, timing and weather.">
+<meta name="description" content="Interactive dashboard of 38,571 Dutch train disruptions, 2019–2025: disruption time, causes, timing and weather.">
 <meta property="og:title" content="Are Dutch trains getting worse? · Interactive dashboard">
-<meta property="og:description" content="38,571 train disruptions, 2019–2025. Only 12% more disruptions, but almost twice the hours lost. Filter by year.">
+<meta property="og:description" content="38,571 train disruptions, 2019–2025. Only 12% more disruptions, but almost twice the disruption time. Filter by year.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://lervindelarosa-gif.github.io/trains/">
 <meta property="og:image" content="https://lervindelarosa-gif.github.io/assets/proj-trains.png">
@@ -81,28 +81,28 @@ footer p+p{margin-top:6px}
 <div class="wrap">
   <a class="back" href="../#projects">← Lervin de la Rosa · Portfolio</a>
   <h1>Are Dutch trains getting worse?</h1>
-  <p class="lead">38,571 train disruptions in the Netherlands, 2019–2025. Pick a year to filter every chart. Hover or tap a bar for the numbers.</p>
+  <p class="lead">38,571 train disruptions in the Netherlands, 2019–2025. <b>Disruption time</b> = how long a disruption lasted, from start to end (not the delay of individual passengers). Pick a year to filter every chart; hover or tap a bar for the numbers.</p>
 
   <div class="filters" role="group" aria-label="Filter by year" id="filters"><span>Year:</span></div>
 
   <section class="kpis" aria-label="Key numbers">
     <div class="kpi"><div class="k">Disruptions</div><div class="v" id="k-dis">–</div><div class="n" id="k-dis-n">&nbsp;</div></div>
-    <div class="kpi"><div class="k">Hours lost</div><div class="v" id="k-hrs">–</div><div class="n" id="k-hrs-n">&nbsp;</div></div>
+    <div class="kpi"><div class="k">Disruption time (hours)</div><div class="v" id="k-hrs">–</div><div class="n" id="k-hrs-n">&nbsp;</div></div>
     <div class="kpi"><div class="k">Typical disruption (median)</div><div class="v" id="k-med">–</div><div class="n">half are shorter, half longer</div></div>
     <div class="kpi"><div class="k">Disruptions over 8 hours</div><div class="v" id="k-8h">–</div><div class="n" id="k-8h-n">&nbsp;</div></div>
   </section>
 
   <section class="grid">
     <article class="card">
-      <h2>Hours lost almost doubled since 2019</h2>
-      <p class="sub">Total hours of disruption per year</p>
-      <div class="chart"><canvas id="c-year" role="img" aria-label="Bar chart of hours lost per year"></canvas></div>
+      <h2>Disruption time almost doubled since 2019</h2>
+      <p class="sub">How long all disruptions lasted together, in hours per year</p>
+      <div class="chart"><canvas id="c-year" role="img" aria-label="Bar chart of disruption time per year"></canvas></div>
       <details><summary>Show data</summary><table id="t-year"></table></details>
     </article>
     <article class="card">
       <h2>What caused the hours?</h2>
-      <p class="sub">Hours lost per year by cause (disruptions without a recorded cause are left out)</p>
-      <div class="chart"><canvas id="c-cause" role="img" aria-label="Stacked bar chart of hours lost by cause per year"></canvas></div>
+      <p class="sub">Disruption time per year by cause, in hours (disruptions without a recorded cause are left out)</p>
+      <div class="chart"><canvas id="c-cause" role="img" aria-label="Stacked bar chart of disruption time by cause per year"></canvas></div>
       <details><summary>Show data</summary><table id="t-cause"></table></details>
     </article>
     <article class="card">
@@ -126,7 +126,7 @@ footer p+p{margin-top:6px}
   </section>
 
   <section class="findings" aria-label="Key findings">
-    <p><b>Longer, not just more.</b> There are only 12% more disruptions than in 2019, but the hours lost almost doubled. A typical disruption is only a bit longer; disruptions of more than 8 hours happen 2.6× as often.</p>
+    <p><b>Longer, not just more.</b> There are only 12% more disruptions than in 2019, but the total disruption time almost doubled. A typical disruption is only a bit longer; disruptions of more than 8 hours happen 2.6× as often.</p>
     <p><b>2023 was the worst year.</b> Mostly strikes at regional train companies such as Arriva and Keolis early in the year, plus staff shortages.</p>
     <p><b>Infrastructure is the biggest cause overall,</b> ahead of rolling stock (broken trains) and staff.</p>
     <p><b>Weather matters only when it is extreme.</b> Leaf fall (herfstblad) is small; hard frost adds the most disruptions (+57% on a typical day).</p>
@@ -199,7 +199,7 @@ footer p+p{margin-top:6px}
 
     charts.year = new Chart(document.getElementById("c-year"), {
       type: "bar",
-      data: { labels: data.years, datasets: [bar(t.s1, { label: "Hours lost", data: data.hours_by_year })] },
+      data: { labels: data.years, datasets: [bar(t.s1, { label: "Disruption time", data: data.hours_by_year })] },
       options: base(t, { unit: " h" })
     });
 
@@ -248,7 +248,7 @@ footer p+p{margin-top:6px}
     });
 
     // static tables
-    table("t-year", ["Year", "Hours lost"], data.years.map((y, i) => [y, data.hours_by_year[i]]));
+    table("t-year", ["Year", "Disruption time (h)"], data.years.map((y, i) => [y, data.hours_by_year[i]]));
     table("t-cause", ["Year", ...data.causes.map(c => CAUSE_LABELS[c])], data.years.map((y, i) => [y, ...data.causes.map(c => data.cause_hours_by_year[c][i])]));
     const normal = w[0].median_disruptions;
     table("t-weather", ["Weather", "Days", "Typical day", "vs normal"], w.map((r, i) => [r.label, r.days, r.median_disruptions, i ? `+${Math.round((r.median_disruptions / normal - 1) * 100)}%` : "–"]));
