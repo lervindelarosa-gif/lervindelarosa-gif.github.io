@@ -143,7 +143,7 @@ nav{display:flex;align-items:center;justify-content:space-between;height:66px}
 .job p.sub strong{color:var(--text);font-weight:600}
 
 /* skills */
-.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:40px}
+.skills{display:grid;grid-template-columns:repeat(2,1fr);gap:40px 56px;margin-top:40px}
 .skill h3{font-family:Inter,Arial,sans-serif;font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
 
 /* contact */
@@ -163,6 +163,24 @@ footer{padding:30px 0 40px;text-align:center;color:var(--faint);font-size:13px;b
 .filter button[aria-pressed="true"]{background:var(--gold);border-color:var(--gold);color:#14171F}
 .filter button:focus-visible,button.tag:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 .filter-count{font-size:13px;color:var(--faint);margin-top:10px;min-height:1.3em}
+.view{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:12px}
+.view button{font:inherit;font-size:13px;font-weight:600;color:var(--muted);background:transparent;border:1px solid var(--line);padding:7px 14px;cursor:pointer;transition:border-color .2s,color .2s}
+.view button:hover{border-color:var(--gold);color:var(--gold)}
+.view button[aria-pressed="true"]{border-color:var(--gold);color:var(--gold)}
+.view button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.ptable-wrap{overflow-x:auto;margin-top:20px;border:1px solid var(--line);background:var(--card)}
+.ptable{width:100%;border-collapse:collapse;font-size:15px;min-width:760px}
+.ptable th{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);text-align:left;padding:14px 18px;border-bottom:1px solid var(--line)}
+.ptable td{padding:16px 18px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--muted)}
+.ptable tbody tr:not([hidden]):last-of-type td{border-bottom:0}
+.ptable td:first-child{color:var(--text);font-weight:600;min-width:170px}
+.ptable td:first-child span{display:block;font-weight:400;font-size:13px;color:var(--faint);margin-top:4px}
+.ptable strong{color:var(--gold);font-weight:600}
+.ptable .links{display:flex;flex-direction:column;gap:4px;white-space:nowrap}
+.ptable a{color:var(--text)}
+.ptable tr[hidden]{display:none}
+[data-view="table"] .projects{display:none}
+[data-view="cards"] .ptable-wrap{display:none}
 .projects .project[hidden],.projects .pair[hidden]{display:none}
 .pair.single{grid-template-columns:1fr}
 button.tag{font-family:inherit;background:transparent;cursor:pointer;transition:border-color .2s,color .2s}
@@ -232,7 +250,7 @@ button.tag::after{content:" \2192";opacity:.6}
       <div>
         <p class="label">Junior Data Analyst · The Hague</p>
         <h1>Lervin<em>de la Rosa</em></h1>
-        <p class="intro">For 10 years I helped customers at <strong>Booking.com</strong>. Now I use <strong>data</strong> to help teams make better decisions, with SQL, Python, Tableau and Power BI.</p>
+        <p class="intro">Data analyst for <strong>customer and travel analytics</strong>. 10 years at <strong>Booking.com</strong> taught me what customers need. Now I find it in the data with SQL, Python, Tableau and Power BI.</p>
         <div class="btns">
           <a class="btn btn-solid" href="#projects">View projects</a>
           <a class="btn btn-line" href="#contact">Get in touch</a>
@@ -318,13 +336,27 @@ button.tag::after{content:" \2192";opacity:.6}
 </section>
 
 <!-- PROJECTS -->
-<section id="projects">
+<section id="projects" data-view="cards">
   <div class="wrap">
     <p class="label">Projects</p>
     <h2 class="title">Selected <em>projects</em></h2>
     <p class="lead">Each project starts with a real question and ends with a clear answer.</p>
     <div class="filter" role="group" aria-label="Filter projects by skill"><span class="filter-label">Show projects with</span><button type="button" data-skill="all" aria-pressed="true">All</button><button type="button" data-skill="sql" aria-pressed="false">SQL</button><button type="button" data-skill="python" aria-pressed="false">Python</button><button type="button" data-skill="powerbi" aria-pressed="false">Power BI</button><button type="button" data-skill="tableau" aria-pressed="false">Tableau</button><button type="button" data-skill="ml" aria-pressed="false">Machine learning</button><button type="button" data-skill="abtest" aria-pressed="false">A/B testing</button></div>
+    <div class="view" role="group" aria-label="Choose how to show projects"><span class="filter-label">View</span><button type="button" data-view="cards" aria-pressed="true">▦ Cards</button><button type="button" data-view="table" aria-pressed="false">≡ Quick table</button></div>
     <p class="filter-count" id="filter-count" aria-live="polite"></p>
+
+    <div class="ptable-wrap">
+      <table class="ptable">
+        <thead><tr><th>Project</th><th>Question</th><th>Key result</th><th>Tools</th><th>Links</th></tr></thead>
+        <tbody>
+          <tr data-skills="python ml tableau statistics"><td>Is memory loss only about age?<span>Final project · Ironhack</span></td><td>Is memory loss only about getting older?</td><td>No. My model finds <strong>2× more people</strong> with memory loss for the same budget.</td><td>Python, machine learning, Tableau, Streamlit</td><td><div class="links"><a href="https://memory-loss-analysis.streamlit.app" target="_blank" rel="noopener">Live app ↗</a><a href="https://public.tableau.com/app/profile/lervin.de.la.rosa/viz/Ismemorylossonlyaboutage/Home" target="_blank" rel="noopener">Dashboard ↗</a><a href="https://github.com/lervindelarosa-gif/memory-loss-analysis" target="_blank" rel="noopener">Code ↗</a></div></td></tr>
+          <tr data-skills="sql powerbi python"><td>What disrupts Dutch trains?<span>Personal project · Power BI</span></td><td>Are train disruptions getting worse, and why?</td><td>Total disruption time <strong>almost doubled</strong>. Disruptions over 8 hours happen <strong>2.6×</strong> as often.</td><td>SQL, Power BI, DAX, Python</td><td><div class="links"><a href="trains/">Dashboard ↗</a><a href="https://github.com/lervindelarosa-gif/dutch-train-disruptions-2019-2025" target="_blank" rel="noopener">Code ↗</a></div></td></tr>
+          <tr data-skills="python ml"><td>Star, galaxy or quasar?<span>Machine learning · Ironhack</span></td><td>Can a model tell what a telescope is looking at?</td><td>Right <strong>98%</strong> of the time, and 88.6% with cheap colour data only.</td><td>Python, scikit-learn</td><td><div class="links"><a href="https://github.com/lervindelarosa-gif/Stellar-classification" target="_blank" rel="noopener">Code ↗</a></div></td></tr>
+          <tr data-skills="abtest python tableau statistics"><td>Vanguard website test<span>Team project · Ironhack</span></td><td>Does a new website design help clients finish?</td><td>Completion rose to <strong>69.3%</strong> from 65.6%, but the advice was to fix step 1 first.</td><td>A/B test, Python, Tableau</td><td><div class="links"><a href="https://github.com/lervindelarosa-gif/vanguard-ab-test" target="_blank" rel="noopener">Code ↗</a><a href="https://public.tableau.com/app/profile/juliana.therezo/viz/VanguardABTest_Dashboard/Overview" target="_blank" rel="noopener">Dashboard ↗</a></div></td></tr>
+          <tr data-skills="python"><td>AI in European companies<span>Team project · Ironhack</span></td><td>How many companies use AI, and what stops the others?</td><td>AI use almost <strong>tripled</strong> (7% to 19%). The biggest barrier is skills.</td><td>Python, REST API</td><td><div class="links"><a href="https://github.com/lervindelarosa-gif/Impact-of-Ai-on-Society" target="_blank" rel="noopener">Code ↗</a></div></td></tr>
+        </tbody>
+      </table>
+    </div>
 
     <div class="projects">
 
@@ -455,6 +487,10 @@ button.tag::after{content:" \2192";opacity:.6}
         <h3>Visuals and tools</h3>
         <div class="tags"><button type="button" class="tag" data-skill="tableau" title="See projects with Tableau">Tableau</button><button type="button" class="tag" data-skill="powerbi" title="See projects with Power BI">Power BI</button><button type="button" class="tag" data-skill="powerbi" title="See projects with DAX">DAX</button><span class="tag">Streamlit</span><span class="tag">Matplotlib</span><span class="tag">Seaborn</span><span class="tag">Git / GitHub</span><span class="tag">Jupyter</span><span class="tag">Zendesk</span><span class="tag">SAP</span></div>
       </div>
+      <div class="skill reveal">
+        <h3>Working with people</h3>
+        <div class="tags"><span class="tag">Explaining data to non-technical people</span><span class="tag">Stakeholder communication</span><span class="tag">Calm under pressure</span><span class="tag">Problem solving</span><span class="tag">Learning new tools fast</span><span class="tag">4 languages</span></div>
+      </div>
     </div>
   </div>
 </section>
@@ -520,6 +556,7 @@ button.tag::after{content:" \2192";opacity:.6}
   var projects=[].slice.call(document.querySelectorAll('.projects .project'));
   var pairs=[].slice.call(document.querySelectorAll('.projects .pair'));
   var count=document.getElementById('filter-count');
+  var rows=[].slice.call(document.querySelectorAll('.ptable tbody tr'));
   function apply(skill){
     var label='';
     buttons.forEach(function(b){var on=b.dataset.skill===skill;b.setAttribute('aria-pressed',on);if(on)label=b.textContent;});
@@ -528,6 +565,7 @@ button.tag::after{content:" \2192";opacity:.6}
       var show=skill==='all'||(' '+p.dataset.skills+' ').indexOf(' '+skill+' ')>-1;
       p.hidden=!show; if(show){shown++;p.classList.add('in');}
     });
+    rows.forEach(function(r){r.hidden=!(skill==='all'||(' '+r.dataset.skills+' ').indexOf(' '+skill+' ')>-1);});
     pairs.forEach(function(pair){
       var visible=[].slice.call(pair.children).filter(function(c){return !c.hidden;}).length;
       pair.hidden=visible===0; pair.classList.toggle('single',visible===1);
@@ -535,6 +573,13 @@ button.tag::after{content:" \2192";opacity:.6}
     count.textContent=skill==='all'?'':'Showing '+shown+' of '+projects.length+' projects with '+label+'.';
   }
   buttons.forEach(function(b){b.addEventListener('click',function(){apply(b.dataset.skill);});});
+  var sec=document.getElementById('projects');
+  var views=[].slice.call(document.querySelectorAll('.view button'));
+  views.forEach(function(v){v.addEventListener('click',function(){
+    sec.setAttribute('data-view',v.dataset.view);
+    views.forEach(function(x){x.setAttribute('aria-pressed',x===v);});
+    if(v.dataset.view==='cards') window.dispatchEvent(new Event('resize'));
+  });});
   [].slice.call(document.querySelectorAll('#skills button.tag')).forEach(function(tag){
     tag.addEventListener('click',function(){
       apply(tag.dataset.skill);
